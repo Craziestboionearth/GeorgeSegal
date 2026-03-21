@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="desktop">
+      <div class="component">
+        <div class="links">
+          <div class="content">
+            <div class="nav-link"><div class="text-wrapper">Wer war George Segal?</div></div>
+            <div class="nav-link"><div class="div">Biografie</div></div>
+            <div class="nav-link"><div class="text-wrapper-2">Werke</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="intro">
+          <div class="copy">
+            <div class="text-wrapper-3">George Segal</div>
+            <p class="p">Figuren zwischen Alltag und Geisterhaftigkeit</p>
+          </div>
+          <div class="image"><img class="img" src="img/image-1.png" /></div>
+        </div>
+        <div class="about">
+          <div class="image-2"></div>
+          <div class="copy-2">
+            <div class="text-wrapper-4">Wer war George Segal?</div>
+            <p class="text-wrapper-5">
+              George Segal (1924–2000) war ein US-amerikanischer Künstler, der aus einfachen Gipsbinden lebensgroße
+              Menschenfiguren schuf. Seine oftmals weißen, bandagenartigen Körper wirken wie eingefrorene Schatten des
+              Alltags und stehen oft mitten in vertrauten Situationen – an Tischen, in Läden oder auf der Straße. Obwohl
+              er der Pop Art zugerechnet wird, interessierte ihn weniger Konsumkritik als das stille, manchmal einsame
+              Nebeneinander von Menschen
+            </p>
+          </div>
+        </div>
+        <div class="frame">
+<div
+  id="segal-circle-timeline"
+  style="
+    position: relative;
+    width: 100vh;
+    height: 560px;
+    margin: 0 auto;
+    background: white;
+    box-sizing: border-box;
+    font-family: system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    overflow: hidden;
+  "
+>
+  <!-- Fenster, in dem der Bogen sichtbar ist -->
+  <div
+    id="circle-window"
+    style="
+      position: absolute;
+      left: 50%;
+      top: 52%;
+      transform: translate(-50%,-50%);
+      width: 700px;
+      height: 560px;
+      overflow: hidden;
+    "
+  >
+    <!-- komplettes Rad -->
+    <div
+      id="circle-wheel"
+      style="
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        width: 500px;
+        height: 500px;
+        transform: translate(-50%,-50%);
+      "
+    >
+      <!-- Kreis-Linie -->
+      <div
+        style="
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 500px;
+          height: 500px;
+          transform: translate(-50%,-50%);
+          border-radius: 50%;
+          border: 3px solid #ccc;
+        "
+      ></div>
+
+      <!-- Container, der den EINEN sichtbaren Kreis trägt -->
+      <div
+        id="circle-items"
+        style="
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 0;
+          height: 0;
+          transform: translate(-50%,-50%);
+        "
+      >
+        <!-- 5 logische Items, aber alle an derselben Position; JS setzt nur den aktiven sichtbar -->
+        <!-- ITEM 0 – 1924 -->
+        <div
+          class="circle-item"
+          data-index="0"
+          data-title="1924 – Geburt"
+          data-sub="New York City, USA."
+          style="
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            left: 0;
+            top: 0;
+            transform-origin: 50% 50%;
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.3s ease;
+          "
+        >
+          <div
+            class="circle-node"
+            style="
+              width: 200px;
+              height: 200px;
+              border-radius: 50%;
+              border: 3px solid #222;
+              overflow: hidden;
+              background: #fff;
+              box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+              cursor: pointer;
+              position: relative;
+              transition: all 0.25s ease;
+            "
+            onmouseover="this.style.width='280px';this.style.height='210px';this.style.borderRadius='14px';this.style.transform='translate(-40px,-10px)';this.querySelector('img').style.opacity='0';this.querySelector('.circle-card').style.opacity='1';this.querySelector('.circle-card').style.pointerEvents='auto';"
+            onmouseout="this.style.width='200px';this.style.height='200px';this.style.borderRadius='50%';this.style.transform='translate(0,0)';this.querySelector('img').style.opacity='1';this.querySelector('.circle-card').style.opacity='0';this.querySelector('.circle-card').style.pointerEvents='none';"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/George_Segal_1999.jpg/320px-George_Segal_1999.jpg"
+              alt="George Segal Porträt"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                transition: opacity 0.2s ease;
+              "
+            />
+            <div
+              class="circle-card"
+              style="
+                position: absolute;
+                inset: 0;
+                padding: 14px 16px;
+                box-sizing: border-box;
+                background: #222;
+                color: #f9f9f9;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.2s ease;
+                font-size: 13px;
+                line-height: 1.5;
+              "
+            >
+              1924 – Geburt<br />
+              George Segal wird am 26. November 1924 in New York City
+              geboren. Er wuchs in einer jüdisch-russischen Familie auf.
+            </div>
+          </div>
+        </div>
+
+        <!-- ITEM 1 – 1946 -->
+        <div
+          class="circle-item"
+          data-index="1"
+          data-title="1946 – Heirat"
+          data-sub="New Jersey, USA"
+          style="
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            left: 0;
+            top: 0;
+            transform-origin: 50% 50%;
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.3s ease;
+          "
+        >
+          <div
+            class="circle-node"
+            style="
+              width: 200px;
+              height: 200px;
+              border-radius: 50%;
+              border: 3px solid #222;
+              overflow: hidden;
+              background: #fff;
+              box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+              cursor: pointer;
+              position: relative;
+              transition: all 0.25s ease;
+            "
+            onmouseover="this.style.width='280px';this.style.height='210px';this.style.borderRadius='14px';this.style.transform='translate(-40px,-10px)';this.querySelector('img').style.opacity='0';this.querySelector('.circle-card').style.opacity='1';this.querySelector('.circle-card').style.pointerEvents='auto';"
+            onmouseout="this.style.width='200px';this.style.height='200px';this.style.borderRadius='50%';this.style.transform='translate(0,0)';this.querySelector('img').style.opacity='1';this.querySelector('.circle-card').style.opacity='0';this.querySelector('.circle-card').style.pointerEvents='none';"
+          >
+            <img
+              src="https://via.placeholder.com/400x400.png?text=Segal+%26+Helen"
+              alt="Segal und Helen"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                transition: opacity 0.2s ease;
+              "
+            />
+            <div
+              class="circle-card"
+              style="
+                position: absolute;
+                inset: 0;
+                padding: 14px 16px;
+                box-sizing: border-box;
+                background: #222;
+                color: #f9f9f9;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.2s ease;
+                font-size: 13px;
+                line-height: 1.5;
+              "
+            >
+              1946 – Heirat & Hühnerhof<br />
+              Segal heiratet Helen Steinberg und führt mit ihr einen
+              Hühnerhof in New Jersey. Dieser wurde im Laufe der
+              Jahre zu seinem Atelier und einer Ausstellungsfläche.
+            </div>
+          </div>
+        </div>
+
+        <!-- ITEM 2 – 1961 -->
+        <div
+          class="circle-item"
+          data-index="2"
+          data-title="1961 – Gipsabgüsse"
+          style="
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            left: 0;
+            top: 0;
+            transform-origin: 50% 50%;
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.3s ease;
+          "
+        >
+          <div
+            class="circle-node"
+            style="
+              width: 200px;
+              height: 200px;
+              border-radius: 50%;
+              border: 3px solid #222;
+              overflow: hidden;
+              background: #fff;
+              box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+              cursor: pointer;
+              position: relative;
+              transition: all 0.25s ease;
+            "
+            onmouseover="this.style.width='280px';this.style.height='210px';this.style.borderRadius='14px';this.style.transform='translate(-40px,-10px)';this.querySelector('img').style.opacity='0';this.querySelector('.circle-card').style.opacity='1';this.querySelector('.circle-card').style.pointerEvents='auto';"
+            onmouseout="this.style.width='200px';this.style.height='200px';this.style.borderRadius='50%';this.style.transform='translate(0,0)';this.querySelector('img').style.opacity='1';this.querySelector('.circle-card').style.opacity='0';this.querySelector('.circle-card').style.pointerEvents='none';"
+          >
+            <img
+              src="https://www.moma.org/media/W1siZiIsIjM4OTMxIl0sWyJwIiwiY29udmVydCIsIi1yZXNpemUgMjAwMHgyMDAwXHUwMDNlIl1d.jpg?sha=7b8a4c569eb8e4b6"
+              alt="Segal Skulptur"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                transition: opacity 0.2s ease;
+              "
+            />
+            <div
+              class="circle-card"
+              style="
+                position: absolute;
+                inset: 0;
+                padding: 14px 16px;
+                box-sizing: border-box;
+                background: #222;
+                color: #f9f9f9;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.2s ease;
+                font-size: 13px;
+                line-height: 1.5;
+              "
+            >
+              1961 – Gipsabgüsse<br />
+              Segal entwickelt seine charakteristischen
+              lebensgroßen Gipsfiguren. Die Modelle dafür
+              waren oft Familienmitglieder oder Freunde.
+            </div>
+          </div>
+        </div>
+
+        <!-- ITEM 3 – Holocaust -->
+        <div
+          class="circle-item"
+          data-index="3"
+          data-title="1982/84 – The Holocaust"
+          data-sub="San Francisco, USA"
+          style="
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            left: 0;
+            top: 0;
+            transform-origin: 50% 50%;
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.3s ease;
+          "
+        >
+          <div
+            class="circle-node"
+            style="
+              width: 200px;
+              height: 200px;
+              border-radius: 50%;
+              border: 3px solid #222;
+              overflow: hidden;
+              background: #fff;
+              box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+              cursor: pointer;
+              position: relative;
+              transition: all 0.25s ease;
+            "
+            onmouseover="this.style.width='280px';this.style.height='210px';this.style.borderRadius='14px';this.style.transform='translate(-40px,-10px)';this.querySelector('img').style.opacity='0';this.querySelector('.circle-card').style.opacity='1';this.querySelector('.circle-card').style.pointerEvents='auto';"
+            onmouseout="this.style.width='200px';this.style.height='200px';this.style.borderRadius='50%';this.style.transform='translate(0,0)';this.querySelector('img').style.opacity='1';this.querySelector('.circle-card').style.opacity='0';this.querySelector('.circle-card').style.pointerEvents='none';"
+          >
+            <img
+              src="https://www.legionofhonor.org/sites/default/files/styles/artwork_full/public/holocaust_memorial_george_segal.jpg"
+              alt="Holocaust Memorial"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                transition: opacity 0.2s ease;
+              "
+            />
+            <div
+              class="circle-card"
+              style="
+                position: absolute;
+                inset: 0;
+                padding: 14px 16px;
+                box-sizing: border-box;
+                background: #222;
+                color: #f9f9f9;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.2s ease;
+                font-size: 13px;
+                line-height: 1.5;
+              "
+            >
+              1982/84 – The Holocaust<br />
+              Er schuf ein Denkmal zum Thema Holocaust.
+              Als Kind des Krieges war er stark geprägt
+              und nutze die Kunst um immer wieder
+              an diese Zeit zu erinnern.
+            </div>
+          </div>
+        </div>
+
+        <!-- ITEM 4 – The Commuters -->
+        <div
+          class="circle-item"
+          data-index="4"
+          data-title="1982 – The Commuters"
+          data-sub="New York City, USA"
+          style="
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            left: 0;
+            top: 0;
+            transform-origin: 50% 50%;
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.3s ease;
+          "
+        >
+          <div
+            class="circle-node"
+            style="
+              width: 200px;
+              height: 200px;
+              border-radius: 50%;
+              border: 3px solid #222;
+              overflow: hidden;
+              background: #fff;
+              box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+              cursor: pointer;
+              position: relative;
+              transition: all 0.25s ease;
+            "
+            onmouseover="this.style.width='280px';this.style.height='210px';this.style.borderRadius='14px';this.style.transform='translate(-40px,-10px)';this.querySelector('img').style.opacity='0';this.querySelector('.circle-card').style.opacity='1';this.querySelector('.circle-card').style.pointerEvents='auto';"
+            onmouseout="this.style.width='200px';this.style.height='200px';this.style.borderRadius='50%';this.style.transform='translate(0,0)';this.querySelector('img').style.opacity='1';this.querySelector('.circle-card').style.opacity='0';this.querySelector('.circle-card').style.pointerEvents='none';"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/George_Segal_The_Commuters_01.jpg/640px-George_Segal_The_Commuters_01.jpg"
+              alt="The Commuters"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                transition: opacity 0.2s ease;
+              "
+            />
+            <div
+              class="circle-card"
+              style="
+                position: absolute;
+                inset: 0;
+                padding: 14px 16px;
+                box-sizing: border-box;
+                background: #222;
+                color: #f9f9f9;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 0.2s ease;
+                font-size: 13px;
+                line-height: 1.5;
+              "
+            >
+              1982 – The Commuters<br />
+              Installation im Port Authority Bus Terminal, New York.
+              Das Kunstwerk zeigt eine Gruppe aus drei Personen,
+              die vor einer offenen Tür aus der originialen
+              Einrichtung des Terminals warten.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Titel unter dem sichtbaren Kreis -->
+  <div
+    id="circle-text"
+    style="
+      position: absolute;
+      left: 50%;
+      top: 83%;
+      transform: translateX(-50%);
+      text-align: center;
+      width: 80%;
+    "
+  >
+    <div
+      id="circle-title"
+      style="
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 4px;
+        color: #111;
+      "
+    >
+      1924 – Geburt
+    </div>
+    <div
+      id="circle-sub"
+      style="
+        font-size: 13px;
+        color: #444;
+      "
+    >
+      New York City, USA.
+    </div>
+  </div>
+
+  <!-- Pfeile -->
+  <button
+    id="circle-prev"
+    style="
+      position: absolute;
+      left: 20px;
+      top: 52%;
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0,0,0,0.65);
+      color: #fff;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    "
+  >
+    &#10094;
+  </button>
+  <button
+    id="circle-next"
+    style="
+      position: absolute;
+      right: 20px;
+      top: 52%;
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0,0,0,0.65);
+      color: #fff;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    "
+  >
+    &#10095;
+  </button>
+
+  <script>
+    (function () {
+      var items = document.querySelectorAll('#segal-circle-timeline .circle-item');
+      var btnPrev = document.getElementById('circle-prev');
+      var btnNext = document.getElementById('circle-next');
+      var titleEl = document.getElementById('circle-title');
+      var subEl = document.getElementById('circle-sub');
+
+      if (!items.length || !btnPrev || !btnNext || !titleEl || !subEl) return;
+
+      var current = 0;
+      var maxIndex = items.length - 1;
+      var radius = 250; // Abstand vom Zentrum zur Kreismitte
+      var baseAngle = -90; // aktueller Punkt oben
+
+      function layout() {
+        var step = 360 / items.length;
+        for (var i = 0; i < items.length; i++) {
+          var angleDeg = baseAngle + (i - current) * step;
+          var angle = angleDeg * (Math.PI / 180);
+          var x = Math.cos(angle) * radius;
+          var y = Math.sin(angle) * radius;
+          // Kreismitte auf der Linie: wir setzen die Item-Mitte auf (x,y)
+          items[i].style.transform =
+            'translate(' + (x - 100) + 'px,' + (y - 100) + 'px)'; // 100 = radius des Kreises (200/2)
+          items[i].style.opacity = i === current ? '1' : '0';
+        }
+        var active = items[current];
+        titleEl.textContent = active.getAttribute('data-title');
+        subEl.textContent = active.getAttribute('data-sub');
+        btnPrev.style.opacity = current === 0 ? '0.3' : '1';
+        btnPrev.style.pointerEvents = current === 0 ? 'none' : 'auto';
+        btnNext.style.opacity = current === maxIndex ? '0.3' : '1';
+        btnNext.style.pointerEvents = current === maxIndex ? 'none' : 'auto';
+      }
+
+      btnPrev.onclick = function () {
+        if (current > 0) {
+          current--;
+          layout();
+        }
+      };
+      btnNext.onclick = function () {
+        if (current < maxIndex) {
+          current++;
+          layout();
+        }
+      };
+
+      layout();
+    })();
+  </script>
+</div>
+        <div class="text-wrapper-6">Biografie</div>
+        </div>
+        <div class="werke">
+          <div class="on-view-module">
+            <div class="description-hover">
+              <p class="eclipsed-horizons">Street Crossing (Teil des Werkes) – 1992</p>
+              <div class="lena-koval">📍New Jersey</div>
+            </div>
+            <div class="sketchfab-embed-wrapper">
+                    <iframe 
+                    title="Man from Street Crossing by George Segal" 
+                    frameborder="0" 
+                    allowfullscreen mozallowfullscreen="true" 
+                    webkitallowfullscreen="true" 
+                    allow="autoplay; 
+                    fullscreen; 
+                    xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share 
+                    src="https://sketchfab.com/models/d2fc8da50b814a8b9d2a41669ee75e31/embed?autostart=1&camera=0&preload=1&transparent=1&ui_animations=0&ui_inspector=0&ui_help=0&ui_annotations=0">
+                    </iframe>
+                </div>
+            <p class="text-wrapper-7">
+              Die über die Kreuzung verteilten Fußgänger verkörpern den Zustand moderner Großstadtmenschen: jeder in
+              seiner eigenen Gedankenwelt, blind füreinander; der einzelne Mann wird so zum Symbol für das unauffällige,
+              aber entschlossene Individuum inmitten einer anonymen Masse.
+            </p>
+          </div>
+          <div class="on-view-module-2">
+            <div class="description-hover-2">
+              <div class="eclipsed-horizons">Rush Hour – 1983</div>
+              <div class="lena-koval">📍London</div>
+            </div>
+                <div class="sketchfab-embed-wrapper"> <iframe title="249: Rush Hour (1983) - George Segal" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/8d8dd440e4fc4777821f7e61f3142237/embed?autostart=1&camera=0&preload=1&transparent=1"> </iframe>
+                </div>
+            <p class="text-wrapper-8">
+              Die Gruppe von Pendlern steht für den monotonen, getakteten Rhythmus der Arbeitswelt und zeigt, wie
+              Menschen im Berufsverkehr nebeneinander herleben, körperlich nah, aber emotional voneinander getrennt.
+            </p>
+          </div>
+          <div class="on-view-module-3">
+            <div class="description-hover">
+              <p class="eclipsed-horizons">Woman on a park bench – 1998</p>
+              <div class="lena-koval">📍München (private Sammlung)</div>
+            </div>
+            <div class="sketchfab-embed-wrapper"> <iframe title="Woman on park bench, 1998" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/93395c7d16ed463cb498778cd34303c5/embed?autostart=1&camera=0&preload=1&transparent=1"> </iframe>
+            </div>
+            <p class="text-wrapper-9">
+              Die isolierte, in sich gekehrte Figur thematisiert Einsamkeit und innere Spannung im modernen Alltag und
+              lädt dazu ein, in der unspektakulären Szene die Zerbrechlichkeit und Vergänglichkeit menschlicher Präsenz
+              wahrzunehmen.
+            </p>
+          </div>
+          <div class="on-view-module-4">
+            <div class="sketchfab-embed-wrapper"> <iframe title="Gay Liberation by George Segal" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/1fef8faddc934bed8dc9e0f8898cbd8e/embed?autostart=1&camera=0&preload=1&transparent=1&ui_animations=0&ui_inspector=0&ui_help=0&ui_annotations=0"> </iframe>
+            </div>
+            <div class="description-hover-3">
+              <div class="eclipsed-horizons">Gay Liberation – 1979</div>
+              <p class="lena-koval">📍Madison, Wisconsin (später New York)</p>
+            </div>
+            <p class="text-wrapper-10">
+              Erstes öffentliches Denkmal für die Rechte homosexueller Menschen; es setzt der Stonewall-Revolte ein
+              stilles, alltägliches Monument und macht sichtbar, dass queeres Leben selbstverständlich im öffentlichen
+              Raum existiert und Anerkennung verdient.
+            </p>
+          </div>
+          <div class="title"><div class="text-wrapper-11">Werke</div></div>
+        </div>
+        <p class="weitere-werke-lassen">
+          <span class="span">Weitere Werke lassen sich u.A. auf der Website der<br /><br /></span>
+          <a href="https://segalfoundation.org/sculptures/" target="_blank" rel="noopener noreferrer"
+            ><span class="text-wrapper-12">“George and Helen Segal Foundation”<br /></span
+          ></a>
+          <span class="span"><br />finden.</span>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
