@@ -1,0 +1,2 @@
+# GeorgeSegal
+school project
