@@ -178,7 +178,7 @@
   background-position: 50% 50%;
 }
 
-.desktop .img {
+.desktop .image-2 {
   position: absolute;
   width: 100%;
   left: 0;
@@ -199,12 +199,12 @@
   flex: 0 0 auto;
 }
 
-.desktop .image-2 {
+.desktop .img-2 {
   position: relative;
   width: 462.5px;
   height: 695.29px;
   border-radius: 2.08px;
-  background-image: url(./img/image.png);
+  background-image: url(./Media/2.jpg);
   background-size: cover;
   background-position: 50% 50%;
 }
