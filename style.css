@@ -179,11 +179,11 @@
 }
 
 .desktop .image-2 {
-  position: absolute;
+  position: relative;
   width: 100%;
   left: 0;
   bottom: 0;
-  height: 761px;
+  height: 380px;
   aspect-ratio: 1.36;
   object-fit: cover;
 }
